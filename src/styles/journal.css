@@ -1,8 +1,9 @@
 fieldset {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
-body {
+/* body {
     background-color: blue;
-}
+} */
