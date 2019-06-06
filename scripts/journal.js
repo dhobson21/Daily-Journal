@@ -61,3 +61,4 @@ const printJournalEntries = (entries) => {
 
 // Invoke the render function
 printJournalEntries(entries)
+//THIS WAS HARD
