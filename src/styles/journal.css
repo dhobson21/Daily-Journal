@@ -3,6 +3,12 @@ fieldset {
     flex-direction: row;
 }
 
-body {
+/* body {
     background-color: blue;
+} */
+
+.entry {
+    border: black solid 2px;
+    padding: 10px;
+    margin: 5px;
 }
