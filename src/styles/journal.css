@@ -1,6 +1,7 @@
 fieldset {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /* body {
@@ -12,3 +13,4 @@ fieldset {
     padding: 10px;
     margin: 5px;
 }
+
