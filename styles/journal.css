@@ -17,3 +17,7 @@ fieldset {
 .page_title {
     text-align: center;
 }
+
+label {
+font-weight: bold;
+}

@@ -11,25 +11,25 @@
     <form action="" class="form">
         <fieldset>
         <label for="journalDate">Date of Entry</label>
-        <input type="date" name="journalDate" id="journalDate" class="label">
+        <input type="date" name="journalDate" id="journalDate" class="label" required>
     </fieldset>
     </form>
     <form action="" class="form">
         <fieldset>
             <label for="conceptsCovered">Concepts Covered</label>
-            <input type="text" name="conceptsCovered" id="conceptsCovered" class="label">
+            <input required type="text" name="conceptsCovered" id="conceptsCovered" class="label" onkeyup="regexp(this)" >
         </fieldset>
     </form>
     <form action="" class="form">
         <fieldset>
             <label for="jornalEntry">Journal Entry</label>
-            <textarea Rows="5" columns="25" id="journalEntry" class="label" name="JornalEntry"></textarea> 
+            <textarea required Rows="5" columns="25" id="journalEntry" class="label" name="JornalEntry" onkeyup="regexp(this)"></textarea> 
         </fieldset>
     </form>
     <form action="" class="form">
         <fieldset class="tiger">
             <label for="moodForTheDay">Mood for the Day</label>
-            <select name="moodForTheDay" id="moodForTheDay" class="label">
+            <select required name="moodForTheDay" id="moodForTheDay" class="label">
                 <option value="happy">Happy</option>
                 <option value="determined">Determined</option>
                 <option value="frustrated">Frustrated</option>
@@ -38,7 +38,8 @@
             </select>
         </fieldset>
     </form>
-    <button type="Button">Record Journal Entry</button>
+    <!-- <input type="submit" value="Record Journal Entry" id="record-entry"> -->
+    <button type="Button" id="record-entry">Record Journal Entry</button>
     <article class="entryLog">
     </article>
     <script src="scripts/data.js"></script>

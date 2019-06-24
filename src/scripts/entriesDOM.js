@@ -4,3 +4,10 @@ const printJournalEntries = (entries) => {
   entries.forEach( function(obj) {
     entryLogContainer.innerHTML += makeJournalEntryComponent(obj)});
   }
+
+
+  
+
+
+ 
+
