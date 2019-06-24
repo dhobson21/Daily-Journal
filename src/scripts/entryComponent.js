@@ -1,4 +1,4 @@
-const makeJournalEntryComponent = (entries) => {
+  const makeJournalEntryComponent = (entries) => {
   // Create your own HTML structure for a journal entry
   return `
     <div class="entry">
