@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../styles/journal.css">
         <title>Dustin's Daily Journal</title>
 </head>
@@ -23,29 +23,44 @@
     <form action="" class="form">
         <fieldset>
             <label for="jornalEntry">Journal Entry</label>
-            <textarea required Rows="5" columns="25" id="journalEntry" class="label" name="JornalEntry" onkeyup="regexp(this)"></textarea> 
+            <textarea required Rows="5" columns="25" id="journalEntry" class="label" name="JornalEntry" onkeyup="regexp(this)"></textarea>
         </fieldset>
     </form>
     <form action="" class="form">
         <fieldset class="tiger">
             <label for="moodForTheDay">Mood for the Day</label>
             <select required name="moodForTheDay" id="moodForTheDay" class="label">
-                <option value="happy">Happy</option>
-                <option value="determined">Determined</option>
-                <option value="frustrated">Frustrated</option>
-                <option value="confused">Confused</option>
-                <option value="needToWorkHarder">Need to Work Harder</option>
+                <option value="Happy">Happy</option>
+                <option value="Determined">Determined</option>
+                <option value="Frustrated">Frustrated</option>
+                <option value="Confused">Confused</option>
+
             </select>
         </fieldset>
     </form>
     <!-- <input type="submit" value="Record Journal Entry" id="record-entry"> -->
     <button type="Button" id="record-entry">Record Journal Entry</button>
+    <fieldset>
+        <legend>Filter Journals by Mood</legend>
+        <div>
+            <input type="radio" name ="moodBtn" value="Happy" id ="happy">
+            <label for="happy">Happy</label>
+            <input type="radio" name ="moodBtn" value="Determined" id="determined">
+            <label for="determined">Determined</label>
+            <input type="radio" name ="moodBtn" value="Frustrated" id="frustrated">
+            <label for="frustrated">Frustrated</label>
+            <input type="radio" name ="moodBtn" value="Confused" id="confused">
+            <label for="confused">Confused</label>
+        </div>
+
+    </fieldset>
     <article class="entryLog">
     </article>
     <script src="scripts/data.js"></script>
     <script src="scripts/journal.js"></script>
     <script src="scripts/entriesDOM.js"></script>
     <script src="scripts/entryComponent.js"></script>
+    <script src="scripts/radio_btns.js"></script>
 
 </body>
 </html>

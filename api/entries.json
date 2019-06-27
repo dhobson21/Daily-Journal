@@ -25,8 +25,22 @@
       "date": "2019-06-20",
       "concepts": "Saving Journal Entry to API",
       "entry": "I Finally figured out how to save new journal entries to my API. I was making the dumbest mistake of not having an ID key value in my API. Once I added that I finally got it to save",
-      "mood": "happy",
+      "mood": "Happy",
       "id": 4
+    },
+    {
+      "date": "2019-06-26",
+      "concepts": "All of Book 3",
+      "entry": "Today we coded an app in class that utilized all of the concepts from Book 3. I understood it all for the most part but we worked at such a fast pace that it was a little confusing.",
+      "mood": "Confused",
+      "id": 5
+    },
+    {
+      "date": "2019-06-27",
+      "concepts": "Lab Day",
+      "entry": "Today was a lab day all day which I needed but is always a little bit frustrating when I get stuck on an exercise. ",
+      "mood": "Frustrated",
+      "id": 7
     }
   ]
 }

@@ -1,13 +1,13 @@
 
-const printJournalEntries = (entries) => {
   let entryLogContainer = document.querySelector(".entryLog")
-  entries.forEach( function(obj) {
+const printJournalEntries = (entries) => {
+  entries.forEach( obj => {
     entryLogContainer.innerHTML += makeJournalEntryComponent(obj)});
   }
 
 
-  
 
 
- 
+
+
 
