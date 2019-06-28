@@ -16,8 +16,15 @@ document.querySelector("#record-entry").addEventListener("click", () => {
   let recordConcepts = document.querySelector("#conceptsCovered").value
   let recordEntry = document.querySelector("#journalEntry").value
   let recordMood = document.querySelector("#moodForTheDay").value
+  let x = /[^a-zA-Z0-9(){}:;\s.?!,"']/g;
+  let conceptTest = recordConcepts.match(x);
+  let entryTest = recordEntry.match(x);
   if (recordDate === "" || recordConcepts === "" || recordEntry === "") {
-  } else
+    return;
+  }
+   else if (conceptTest !== null || entryTest !== null) {
+    return;
+   }else
   {let saveEntry = newJournalEntry(recordDate, recordConcepts, recordEntry, recordMood)
     API.saveJournalEntry(saveEntry)
   .then(data => getAndPrintEntries())
