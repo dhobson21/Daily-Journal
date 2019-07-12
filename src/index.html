@@ -40,20 +40,28 @@
     </form>
     <!-- <input type="submit" value="Record Journal Entry" id="record-entry"> -->
     <button type="Button" id="record-entry">Record Journal Entry</button>
-    <fieldset>
-        <legend>Filter Journals by Mood</legend>
-        <div>
-            <input type="radio" name ="moodBtn" value="Happy" id ="happy">
-            <label for="happy">Happy</label>
-            <input type="radio" name ="moodBtn" value="Determined" id="determined">
-            <label for="determined">Determined</label>
-            <input type="radio" name ="moodBtn" value="Frustrated" id="frustrated">
-            <label for="frustrated">Frustrated</label>
-            <input type="radio" name ="moodBtn" value="Confused" id="confused">
-            <label for="confused">Confused</label>
-        </div>
+    <div id="searchNFilter">
+        <fieldset id="selectMood">
+            <legend><strong>Filter Journals by Mood</strong></legend>
+            <div>
+                <input type="radio" name ="moodBtn" value="Happy" id ="happy">
+                <label for="happy">Happy</label>
+                <input type="radio" name ="moodBtn" value="Determined" id="determined">
+                <label for="determined">Determined</label>
+                <input type="radio" name ="moodBtn" value="Frustrated" id="frustrated">
+                <label for="frustrated">Frustrated</label>
+                <input type="radio" name ="moodBtn" value="Confused" id="confused">
+                <label for="confused">Confused</label>
+            </div>
+        </fieldset>
+        <fieldset id="searchBox">
+            <legend><strong>Search Journal Entries</strong></legend>
+            <div>
+                <input type="search" name="searchEntries" id="searchInput">
+            </div>
+        </fieldset>
+    </div>
 
-    </fieldset>
     <article class="entryLog">
     </article>
     <!-- <script src="scripts/data.js"></script>

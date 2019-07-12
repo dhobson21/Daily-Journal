@@ -55,11 +55,13 @@ editBtnArray.forEach(editBtn => {
 
 const printJournalEntries = (entries) => {
   let entryLogContainer = document.querySelector(".entryLog")
+  entryLogContainer.innerHTML = ""
   entries.forEach( obj => {
     entryLogContainer.innerHTML += makeJournalEntryComponent(obj)
   });
   deleteEntry()
   editEntry()
+  searchJournalEl()
 }
 
 
@@ -86,6 +88,48 @@ function saveEntryToDB (id) {
   let editedJEntry = editedJournalEntry (+id, editedDate.value, editedConcepts.value, editedEntry.value, editedMood.value)
   API.saveEditedEntry(id, editedJEntry)
   .then(getAndPrintEntries)
+}
+
+function searchJournalEl () {
+  let searchInput = document.querySelector("#searchInput")
+  searchInput.addEventListener("keypress",function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+      // code for enter
+      let searchInputValue = searchInput.value.toLowerCase()
+      console.log(searchInputValue)
+      getAndFilterEntries(searchInputValue)
+
+}
+})
+}
+
+function getAndFilterEntries (searchTerm) {
+  let searchResults = []
+  let entryLogContainer = document.querySelector(".entryLog")
+  API.getJournalEntries()
+  .then(entries => {
+    entries.forEach(entry => {
+    //put entry in lowercase so you can search by upper and lowercase
+      let lowerCaseEntry = {
+        date: entry.date,
+        title: entry.concepts.toLowerCase(),
+        text: entry.entry.toLowerCase(),
+        mood: entry.mood.toLowerCase()
+
+    };
+    for (const x of Object.values(lowerCaseEntry)) {
+      if (
+        x.includes(searchTerm) === true &&
+        !searchResults.includes(entry)
+      ) {
+        searchResults.push(entry);
+      }
+    }
+  });
+  entryLogContainer = ""
+  printJournalEntries(searchResults)
+})
 }
 
 export{printJournalEntries, getAndPrintEntries}

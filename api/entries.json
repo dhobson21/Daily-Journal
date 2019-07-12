@@ -41,6 +41,13 @@
       "entry": "Today was a lab day all day which I needed but is always a little bit frustrating when I get stuck on an exercise. ",
       "mood": "Frustrated",
       "id": 7
+    },
+    {
+      "id": 8,
+      "date": "2019-07-12",
+      "concepts": "React URL Routing",
+      "entry": "Today we discussed URL Routing in react. I don't totally understand why its necessary to fake routing but i'm here for it I guess",
+      "mood": "Happy"
     }
   ]
 }
