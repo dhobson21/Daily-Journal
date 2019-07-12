@@ -1,4 +1,5 @@
 import {printJournalEntries} from "./entriesDOM.js"
+import {API} from "./data.js"
 
 //Now, you could attach the event listeners to each individually. You could also use the document.getElementsByName() method, and a forEach() to add them more dynamically.
 function radioDeleteListen () {
@@ -8,6 +9,7 @@ radioButtons.forEach(radioButton => {
   radioButton.addEventListener("click", event => {
     console.log(event);
     const mood = event.target.value;
+    let entryLogContainer = document.querySelector(".entryLog")
     entryLogContainer.innerHTML = "";
 
 
@@ -27,5 +29,7 @@ API.getJournalEntries()
   });
 });
 }
+
+
 
 export {radioDeleteListen}

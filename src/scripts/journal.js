@@ -31,6 +31,8 @@ document.querySelector("#record-entry").addEventListener("click", () => {
 }
 })
 
+
+
   const newJournalEntry = (date, concept, entry, mood) => ({
     "date": date,
       "concepts": concept,
@@ -39,7 +41,17 @@ document.querySelector("#record-entry").addEventListener("click", () => {
     })
 
 
+    function editedJournalEntry (id, date, concept, entry, mood) {
+      return {
+        "id": id,
+        "date": date,
+        "concepts": concept,
+        "entry": entry,
+        "mood": mood
+      }
+      }
 
     //calling function that attaches event Listener to delete buttons dynamically made when entries are generated to the DOM
     radioDeleteListen()
 
+      export {editedJournalEntry}
