@@ -12,6 +12,7 @@
   `
 }
 
+//function that creates html of edit entry form that is appended to entry container once "edit entry" button is clicked and event listner calls form
 function editJournalEntryForm (entry) {
 return `
 <form action="" class="edit-form">
@@ -49,7 +50,6 @@ return `
 }
 
 
-let saveEditListener = document.querySelectorAll("#save-edited-entry")
-saveEditListener.addEventListener
+
 
  export {makeJournalEntryComponent, editJournalEntryForm}
