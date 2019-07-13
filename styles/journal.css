@@ -21,3 +21,22 @@ fieldset {
 label {
 font-weight: bold;
 }
+
+#searchNFilter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly
+
+}
+
+#selectMood {
+    flex-basis: 40%
+}
+
+#searchBox {
+    flex-basis: 40%
+}
+
+#searchInput {
+    width: 100%
+}
