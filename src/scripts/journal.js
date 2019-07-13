@@ -3,9 +3,10 @@ import{API} from "./data.js"
 
 import {getAndPrintEntries} from "./entriesDOM.js"
 import { saveNewEntryEl, radioDeleteListen, searchJournalEl} from "./eventListeners.js";
+import { getMoods } from "./entryToDb.js";
 
 
-
+getMoods()
 
 //Initial fetching and posting of journal entries to the DOM
 getAndPrintEntries()

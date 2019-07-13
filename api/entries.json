@@ -5,49 +5,67 @@
       "date": "2019-06-02",
       "concepts": "Dot Notation v. Bracket Notation",
       "entry": "Today we discussed dot notation v. bracket notation. Both seem very straight forward to me, and i feel more comfortable using dot notation and it seems to be able to do more so I'll probably use that predominantly...",
-      "mood": "Determined"
+      "moodId": 1
     },
     {
       "date": "2019-06-04",
       "concepts": "Scope and Variables",
       "entry": "Today we finally discussed scope and variables. I now realize why var isn't used much anymore. I solidified using 'let' 'const' and 'var' later on that night when I was playing around with scopes and inserting different declarations in to see which could move up/down in scope",
-      "mood": "Happy",
+      "moodId": 1,
       "id": 2
     },
     {
       "date": "2019-06-05",
       "concepts": "Passing a function through a function",
       "entry": "Today we learned about passing a function through a function. This was a very clear concept to me as it reminded me of old logic games i used to play while studying for the LSATS.",
-      "mood": "Happy",
+      "moodId": 1,
       "id": 3
     },
     {
       "date": "2019-06-20",
       "concepts": "Saving Journal Entry to API",
       "entry": "I Finally figured out how to save new journal entries to my API. I was making the dumbest mistake of not having an ID key value in my API. Once I added that I finally got it to save",
-      "mood": "Happy",
+      "moodId": 2,
       "id": 4
     },
     {
       "date": "2019-06-26",
       "concepts": "All of Book 3",
       "entry": "Today we coded an app in class that utilized all of the concepts from Book 3. I understood it all for the most part but we worked at such a fast pace that it was a little confusing.",
-      "mood": "Confused",
+      "moodId": 4,
       "id": 5
     },
     {
+      "id": 7,
       "date": "2019-06-27",
       "concepts": "Lab Day",
       "entry": "Today was a lab day all day which I needed but is always a little bit frustrating when I get stuck on an exercise. ",
-      "mood": "Frustrated",
-      "id": 7
+      "moodId": 2
     },
     {
       "id": 8,
       "date": "2019-07-12",
       "concepts": "React URL Routing",
       "entry": "Today we discussed URL Routing in react. I don't totally understand why its necessary to fake routing but i'm here for it I guess",
-      "mood": "Happy"
+      "moodId": 1
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Happy"
+    },
+    {
+      "id": 2,
+      "label": "Determined"
+    },
+    {
+      "id": 3,
+      "label": "Frustrated"
+    },
+    {
+      "id": 4,
+      "label": "Confused"
     }
   ]
 }

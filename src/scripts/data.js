@@ -1,11 +1,16 @@
 const API = {
   getJournalEntries () {
-    return fetch("http://localhost:3000/entries")
+    return fetch("http://localhost:3000/entries?_expand=mood")
+    .then(response => response.json()
+    );
+  },
+  getMoods () {
+    return fetch("http://localhost:3000/moods")
     .then(response => response.json()
     );
   },
   getJournalEntry (id) {
-  return fetch(`http://localhost:3000/entries/${id}`)
+  return fetch(`http://localhost:3000/entries/${id}?_expand=mood`)
   .then(response => response.json()
   );
 },

@@ -2,7 +2,7 @@ import {API} from "./data.js"
 import {getAndPrintEntries, printJournalEntries} from "./entriesDOM.js"
 import {saveEntryToDB} from "./entryToDb.js"
 import {getAndFilterEntries} from "./entryToDb.js"
-import {editJournalEntryForm} from "./entryComponent.js"
+import {editJournalEntryForm, makeEditedMoodSelectChoices} from "./entryComponent.js"
 import {newJournalEntry} from "./entryDBComponent.js"
 
 
@@ -13,8 +13,9 @@ function saveNewEntryEl () {
     event.preventDefault() //preventDefault overdies HTML default of making POST request in a form with a button
     let recordDate = document.querySelector("#journalDate").value
     let recordConcepts = document.querySelector("#conceptsCovered").value
-  let recordEntry = document.querySelector("#journalEntry").value
-  let recordMood = document.querySelector("#moodForTheDay").value
+    let recordEntry = document.querySelector("#journalEntry").value
+    let recordMood = document.querySelector("#moodForTheDay").value
+    console.log(recordMood)
   let x = /[^a-zA-Z0-9(){}:;\s.?!,"']/g;
   let conceptTest = recordConcepts.match(x);
   let entryTest = recordEntry.match(x);
@@ -24,7 +25,7 @@ function saveNewEntryEl () {
    else if (conceptTest !== null || entryTest !== null) {
     return;
   }else
-  {let saveEntry = newJournalEntry(recordDate, recordConcepts, recordEntry, recordMood)
+  {let saveEntry = newJournalEntry(recordDate, recordConcepts, recordEntry, +recordMood)
     API.saveJournalEntry(saveEntry)
     .then(data => getAndPrintEntries())
   }
@@ -65,12 +66,21 @@ function deleteEntry() {
           editSection.setAttribute("id", `edit-section-${editBtnId}`)
           entryDraft.appendChild(editSection)
           editSection.innerHTML = editJournalEntryForm (entry)
+          let editedMoodSelect = document.querySelector(`#EditedMoodForTheDay${editBtnId}`)
+          API.getMoods().then(moods => {
+            moods.forEach(mood => {
+             makeEditedMoodSelectChoices(mood, entry)
+            }
+          )})
           saveEditedEntry(editBtnId)
         })
       })
     })
       }
-
+const createEditMoodOpt = (mood, entry) => {
+   let editMoodOpt = `<option value=1 ${mood.label === entry.mood ? "selected" : ""}>${mood.label}</option>`
+   return editMoodOpt
+}
 //event listener on save buttons in edit entry form which edits the object and PUT's to the db
       function saveEditedEntry (idNumb) {
         let saveEditBtn = document.querySelector(`#saveEditedEntry-${idNumb}`)
@@ -102,6 +112,7 @@ function radioDeleteListen () {
 radioButtons.forEach(radioButton => {
   radioButton.addEventListener("click", event => {
     const mood = event.target.value;
+    console.log(mood)
     let entryLogContainer = document.querySelector(".entryLog")
     entryLogContainer.innerHTML = "";
 
@@ -112,7 +123,7 @@ API.getJournalEntries()
     .then(entries => {
       let moodEntries = [];
       entries.filter(entry => {
-        if (entry.mood === mood) {
+        if (entry.mood.label === mood) {
           moodEntries.push(entry);
           //Once you have filtered the entries by mood, invoke the function that renders the HTML representations to the DOM and pass it the filtered array of entries.
           printJournalEntries(moodEntries);

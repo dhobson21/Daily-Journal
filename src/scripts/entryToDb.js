@@ -1,6 +1,7 @@
 import {editedJournalEntry} from "./entryDBComponent.js"
 import {API} from "./data.js"
 import {printJournalEntries, getAndPrintEntries} from "./entriesDom.js"
+import { makeMoodSelectChoices } from "./entryComponent.js";
 
 //funnction that saves edited journal entry to the db upon clicking "save edited entry" button with event listener. values of input fields are plugged into object and posted to db because id of object is specified
 function saveEntryToDB (id) {
@@ -8,7 +9,7 @@ function saveEntryToDB (id) {
   let editedConcepts =document.querySelector(`#EditedConceptsCovered${id}`)
   let editedEntry =document.querySelector(`#EditedJournalEntry${id}`)
   let editedMood =document.querySelector(`#EditedMoodForTheDay${id}`)
-  let editedJEntry = editedJournalEntry (+id, editedDate.value, editedConcepts.value, editedEntry.value, editedMood.value)
+  let editedJEntry = editedJournalEntry (+id, editedDate.value, editedConcepts.value, editedEntry.value, +editedMood.value)
   API.saveEditedEntry(id, editedJEntry)
   .then(getAndPrintEntries)
 }
@@ -25,7 +26,8 @@ function getAndFilterEntries (searchTerm) {
         date: entry.date,
         title: entry.concepts.toLowerCase(),
         text: entry.entry.toLowerCase(),
-        mood: entry.mood.toLowerCase()
+        mood: entry.mood.label.toLowerCase()
+
 
     };
     for (const x of Object.values(lowerCaseEntry)) {
@@ -42,4 +44,11 @@ function getAndFilterEntries (searchTerm) {
 })
 }
 
-export {saveEntryToDB, getAndFilterEntries}
+function getMoods () {
+  API.getMoods()
+  .then(moods => {
+    console.log("moods", moods)
+    makeMoodSelectChoices(moods)
+  })
+}
+export {saveEntryToDB, getAndFilterEntries, getMoods}
