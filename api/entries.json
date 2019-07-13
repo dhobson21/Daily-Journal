@@ -5,14 +5,14 @@
       "date": "2019-06-02",
       "concepts": "Dot Notation v. Bracket Notation",
       "entry": "Today we discussed dot notation v. bracket notation. Both seem very straight forward to me, and i feel more comfortable using dot notation and it seems to be able to do more so I'll probably use that predominantly...",
-      "moodId": 1
+      "moodId": 4
     },
     {
+      "id": 2,
       "date": "2019-06-04",
       "concepts": "Scope and Variables",
       "entry": "Today we finally discussed scope and variables. I now realize why var isn't used much anymore. I solidified using 'let' 'const' and 'var' later on that night when I was playing around with scopes and inserting different declarations in to see which could move up/down in scope",
-      "moodId": 1,
-      "id": 2
+      "moodId": 1
     },
     {
       "date": "2019-06-05",
@@ -40,7 +40,7 @@
       "date": "2019-06-27",
       "concepts": "Lab Day",
       "entry": "Today was a lab day all day which I needed but is always a little bit frustrating when I get stuck on an exercise. ",
-      "moodId": 2
+      "moodId": 3
     },
     {
       "id": 8,

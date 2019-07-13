@@ -4,40 +4,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../styles/journal.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Dustin's Daily Journal</title>
 </head>
 <body>
+<div class="container-fluid">
+
     <h1 class="page_title">Dustin's Daily Journal</h1>
     <form action="" class="form">
         <fieldset>
         <label for="journalDate">Date of Entry</label>
-        <input type="date" name="journalDate" id="journalDate" class="label" required>
+        <input type="date" name="journalDate" id="journalDate" class="label form-control" required>
     </fieldset>
-    </form>
+</form>
     <form action="" class="form">
         <fieldset>
             <label for="conceptsCovered">Concepts Covered</label>
-            <input required type="text" name="conceptsCovered" id="conceptsCovered" class="label"  >
+            <input required type="text" name="conceptsCovered" id="conceptsCovered" class="label form-control"  >
         </fieldset>
     </form>
     <form action="" class="form">
         <fieldset>
             <label for="jornalEntry">Journal Entry</label>
-            <textarea required Rows="5" columns="25" id="journalEntry" class="label" name="JornalEntry" ></textarea>
+            <textarea required Rows="5" columns="25" id="journalEntry" class="label form-control" name="JornalEntry" ></textarea>
         </fieldset>
     </form>
     <form action="" class="form">
         <fieldset class="tiger">
             <label for="moodForTheDay">Mood for the Day</label>
-            <select required name="moodForTheDay" id="moodForTheDay" class="label">
+            <select required name="moodForTheDay" id="moodForTheDay" class="label form-control">
 
 
             </select>
         </fieldset>
     </form>
     <!-- <input type="submit" value="Record Journal Entry" id="record-entry"> -->
-    <button type="Button" id="record-entry">Record Journal Entry</button>
-    <div id="searchNFilter">
+    <button type="Button" id="record-entry" class = "btn-primary ">Record Journal Entry</button>
+    <div id="searchNFilter" class="border-top">
         <fieldset id="selectMood">
             <legend><strong>Filter Journals by Mood</strong></legend>
             <div>
@@ -61,9 +64,11 @@
 
     <article class="entryLog">
     </article>
+
+</div>
     <!-- <script src="scripts/data.js"></script>
-    <script src="scripts/entryComponent.js"></script>
-    <script src="scripts/entriesDOM.js"></script> -->
+        <script src="scripts/entryComponent.js"></script>
+        <script src="scripts/entriesDOM.js"></script> -->
     <script type="module" src="scripts/journal.js"></script>
     <!-- <script src="scripts/radio_btns.js"></script> -->
 
