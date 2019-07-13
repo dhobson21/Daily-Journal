@@ -31,17 +31,45 @@ function makeEditedMoodSelectChoices (mood, entry) {
     moodSelect.appendChild(moodOpt)
 }
 
-
+function entryBackground (entry) {
+    console.log("entryMood", entry.mood.label)
+    let entryContainer = document.querySelector(`#entry-${entry.mood.label}-${entry.id}`)
+    if (entry.mood.label === "Happy") {
+      entryContainer.setAttribute("class", `Jentry${entry.id} bg-success`)
+    }
+    else if (entry.mood.label === "Determined") {
+      entryContainer.setAttribute("class", `Jentry${entry.id} bg-info`)
+    }
+    else if (entry.mood.label === "Frustrated") {
+      entryContainer.setAttribute("class", `Jentry${entry.id} bg-danger`)
+    }
+else (
+      entryContainer.setAttribute("class", `Jentry${entry.id} bg-warning`)
+)
+}
 
 const makeJournalEntryComponent = (entries) => {
+let entryDate = entries.date
+console.log(entryDate)
+ let m = entryDate.split("-")[1]
+    console.log(m)
+    let d = entryDate.split("-")[2]
+    console.log(d)
+    let y = entryDate.split("-")[0]
+    console.log(y)
+    let date = `${m}/${d}/${y}`
+    console.log(date)
+
+
   return `
-    <div class="entry-${entries.id}">
-    <h1 id="concepts-${entries.id}"> ${entries.concepts} </h1>
-    <h3>${entries.date}</h3>
+  <div class="Jentry${entries.id}" id = "entry-${entries.mood.label}-${entries.id}">
+  <hr class="col-xs-12">
+    <h1 id="concepts-${entries.id}" class = "text-center"> ${entries.concepts} </h1>
+    <h3 class = "text-center">${date}</h3>
     <p>${entries.entry}</p>
-    <p><strong>${entries.mood.label}</strong></p>
-    <button id=delete-btn-${entries.id} class="delete-btn">Delete Entry</button>
-    <button id=editBtn-${entries.id} class="edit-btn">Edit Entry</button>
+    <p class = "text-center"><strong>${entries.mood.label}</strong></p>
+    <button id=delete-btn-${entries.id} class="delete-btn btn-danger">Delete Entry</button>
+    <button id=editBtn-${entries.id} class="edit-btn btn-info" >Edit Entry</button>
     </div>
   `
 }
@@ -78,7 +106,7 @@ return `
 
     </select>
 </fieldset>
-<button id="saveEditedEntry-${entry.id}" class = "saveEditedEntry">Save Journal Entry</button>
+<button id="saveEditedEntry-${entry.id}" class = "saveEditedEntry btn-primary">Save Journal Entry</button>
 </form>
 `
 }
@@ -86,4 +114,4 @@ return `
 
 
 
- export {makeJournalEntryComponent, editJournalEntryForm, makeMoodSelectChoices, makeEditedMoodSelectChoices }
+ export {makeJournalEntryComponent, editJournalEntryForm, makeMoodSelectChoices, makeEditedMoodSelectChoices, entryBackground}

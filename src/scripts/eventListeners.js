@@ -15,7 +15,6 @@ function saveNewEntryEl () {
     let recordConcepts = document.querySelector("#conceptsCovered").value
     let recordEntry = document.querySelector("#journalEntry").value
     let recordMood = document.querySelector("#moodForTheDay").value
-    console.log(recordMood)
   let x = /[^a-zA-Z0-9(){}:;\s.?!,"']/g;
   let conceptTest = recordConcepts.match(x);
   let entryTest = recordEntry.match(x);
@@ -24,7 +23,8 @@ function saveNewEntryEl () {
   }
    else if (conceptTest !== null || entryTest !== null) {
     return;
-  }else
+  }
+  else
   {let saveEntry = newJournalEntry(recordDate, recordConcepts, recordEntry, +recordMood)
     API.saveJournalEntry(saveEntry)
     .then(data => getAndPrintEntries())
@@ -61,7 +61,7 @@ function deleteEntry() {
         editBtn.disabled=true
         API.getJournalEntry(editBtnId)
         .then (entry => {
-          let entryDraft = document.querySelector(`.entry-${editBtnId}`)
+          let entryDraft = document.querySelector(`.Jentry${editBtnId}`)
           let editSection = document.createElement("section")
           editSection.setAttribute("id", `edit-section-${editBtnId}`)
           entryDraft.appendChild(editSection)
@@ -77,10 +77,7 @@ function deleteEntry() {
       })
     })
       }
-const createEditMoodOpt = (mood, entry) => {
-   let editMoodOpt = `<option value=1 ${mood.label === entry.mood ? "selected" : ""}>${mood.label}</option>`
-   return editMoodOpt
-}
+
 //event listener on save buttons in edit entry form which edits the object and PUT's to the db
       function saveEditedEntry (idNumb) {
         let saveEditBtn = document.querySelector(`#saveEditedEntry-${idNumb}`)

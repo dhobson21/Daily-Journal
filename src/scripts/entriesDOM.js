@@ -1,4 +1,4 @@
-import {makeJournalEntryComponent} from "./entryComponent.js"
+import {makeJournalEntryComponent, entryBackground} from "./entryComponent.js"
 import {API} from "./data.js"
 import{deleteEntry, editEntry} from "./eventListeners.js"
 
@@ -9,6 +9,7 @@ function getAndPrintEntries () {
     let entryLogContainer = document.querySelector(".entryLog")
       entryLogContainer.innerHTML = ""
     printJournalEntries(entries)
+
   })
 }
 
@@ -21,8 +22,11 @@ function getAndPrintEntries () {
 const printJournalEntries = (entries) => {
   let entryLogContainer = document.querySelector(".entryLog")
   entryLogContainer.innerHTML = ""
-  entries.forEach( obj => {
-    entryLogContainer.innerHTML += makeJournalEntryComponent(obj)
+  entries.forEach( entry => {
+
+    entryLogContainer.innerHTML += makeJournalEntryComponent(entry)
+
+    entryBackground(entry)
   });
   deleteEntry()
   editEntry()
