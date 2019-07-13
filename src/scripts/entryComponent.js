@@ -1,11 +1,45 @@
 // Create your own HTML structure for a journal entry
-  const makeJournalEntryComponent = (entries) => {
+function makeMoodSelectChoices (moods) {
+  console.log
+  moods.forEach(mood => {
+    let moodSelect = document.querySelector("#moodForTheDay")
+    let valueArr = []
+    for(let foo of Object.values(mood))
+    valueArr.push(foo)
+    let moodOpt = document.createElement("option")
+    moodOpt.setAttribute("value", +`${valueArr[0]}`)
+    moodOpt.textContent = `${valueArr[1]}`
+    moodSelect.appendChild(moodOpt)
+
+  })
+}
+//creates option choices for edit form's moods that also selects the entry's mood as the default choice to be edited--LOOK AT CALUSE OF MmoodOpt
+function makeEditedMoodSelectChoices (mood, entry) {
+
+    let moodSelect = document.querySelector("#moodForTheDay")
+    let valueArr = []
+    let entryArr = []
+    for(let foo of Object.values(mood))
+    valueArr.push(foo)
+    for(let bar of Object.values(entry.mood))
+    entryArr.push(bar)
+    let moodOpt = document.createElement("option")
+    moodOpt.setAttribute("value",
+    //setting value of option to placeId, space, and conditional that selects mood as default choice if mood was the value of entryMood
+    (+`${valueArr[0]}`) + " " + (`{${valueArr[1]} === ${entryArr[1]} ? "selected" : ""}`, ""))
+    moodOpt.textContent = `${valueArr[1]}`
+    moodSelect.appendChild(moodOpt)
+}
+
+
+
+const makeJournalEntryComponent = (entries) => {
   return `
     <div class="entry-${entries.id}">
     <h1 id="concepts-${entries.id}"> ${entries.concepts} </h1>
     <h3>${entries.date}</h3>
     <p>${entries.entry}</p>
-    <p><strong>${entries.mood}</strong></p>
+    <p><strong>${entries.mood.label}</strong></p>
     <button id=delete-btn-${entries.id} class="delete-btn">Delete Entry</button>
     <button id=editBtn-${entries.id} class="edit-btn">Edit Entry</button>
     </div>
@@ -37,10 +71,10 @@ return `
 <fieldset class="tiger">
     <label for="moodForTheDay">Mood for the Day</label>
     <select required name="moodForTheDay" id="EditedMoodForTheDay${entry.id}" class="label" selected>
-        <option value="Happy" ${entry.mood === "Happy" ? "selected" : ""}>Happy</option>
-        <option value="Determined" ${entry.mood === "Determined" ? "selected" : ""}>Determined</option>
-        <option value="Frustrated" ${entry.mood === "Frustrated" ? "selected" : ""}>Frustrated</option>
-        <option value="Confused" ${entry.mood === "Confused" ? "selected" : ""}>Confused</option>
+        <option value=1 ${entry.mood.label === "Happy" ? "selected" : ""}>Happy</option>
+        <option value=2 ${entry.mood.label === "Determined" ? "selected" : ""}>Determined</option>
+        <option value=3 ${entry.mood.label === "Frustrated" ? "selected" : ""}>Frustrated</option>
+        <option value=4 ${entry.mood.label === "Confused" ? "selected" : ""}>Confused</option>
 
     </select>
 </fieldset>
@@ -52,4 +86,4 @@ return `
 
 
 
- export {makeJournalEntryComponent, editJournalEntryForm}
+ export {makeJournalEntryComponent, editJournalEntryForm, makeMoodSelectChoices, makeEditedMoodSelectChoices }

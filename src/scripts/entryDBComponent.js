@@ -2,7 +2,7 @@ const newJournalEntry = (date, concept, entry, mood) => ({
   "date": date,
     "concepts": concept,
     "entry": entry,
-    "mood": mood
+    "moodId": mood
   })
 
 
@@ -12,7 +12,7 @@ const newJournalEntry = (date, concept, entry, mood) => ({
       "date": date,
       "concepts": concept,
       "entry": entry,
-      "mood": mood
+      "moodId": mood
     }
     }
 
