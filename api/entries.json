@@ -12,7 +12,7 @@
       "date": "2019-06-04",
       "concepts": "Scope and Variables",
       "entry": "Today we finally discussed scope and variables. I now realize why var isn't used much anymore. I solidified using 'let' 'const' and 'var' later on that night when I was playing around with scopes and inserting different declarations in to see which could move up/down in scope",
-      "moodId": 1
+      "moodId": 2
     },
     {
       "date": "2019-06-05",
