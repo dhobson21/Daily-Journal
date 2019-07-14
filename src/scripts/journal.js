@@ -6,8 +6,8 @@ import { saveNewEntryEl, radioDeleteListen, searchJournalEl} from "./eventListen
 import { getMoods } from "./entryToDb.js";
 
 
-getMoods()
 
+getMoods()
 //Initial fetching and posting of journal entries to the DOM
 getAndPrintEntries()
 

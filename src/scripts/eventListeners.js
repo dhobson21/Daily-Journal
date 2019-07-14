@@ -71,7 +71,7 @@ function deleteEntry() {
             moods.forEach(mood => {
              makeEditedMoodSelectChoices(mood, entry)
             }
-          )})
+            )})
           saveEditedEntry(editBtnId)
         })
       })
@@ -109,7 +109,6 @@ function radioDeleteListen () {
 radioButtons.forEach(radioButton => {
   radioButton.addEventListener("click", event => {
     const mood = event.target.value;
-    console.log(mood)
     let entryLogContainer = document.querySelector(".entryLog")
     entryLogContainer.innerHTML = "";
 

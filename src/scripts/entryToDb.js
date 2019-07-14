@@ -8,8 +8,9 @@ function saveEntryToDB (id) {
   let editedDate = document.querySelector(`#EditedjournalDate${id}`)
   let editedConcepts =document.querySelector(`#EditedConceptsCovered${id}`)
   let editedEntry =document.querySelector(`#EditedJournalEntry${id}`)
-  let editedMood =document.querySelector(`#EditedMoodForTheDay${id}`)
-  let editedJEntry = editedJournalEntry (+id, editedDate.value, editedConcepts.value, editedEntry.value, +editedMood.value)
+  let editedMood =document.querySelector(`#EditedMoodForTheDay${id}`).value
+
+  let editedJEntry = editedJournalEntry (+id, editedDate.value, editedConcepts.value, editedEntry.value, +editedMood)
   API.saveEditedEntry(id, editedJEntry)
   .then(getAndPrintEntries)
 }
@@ -47,7 +48,6 @@ function getAndFilterEntries (searchTerm) {
 function getMoods () {
   API.getMoods()
   .then(moods => {
-    console.log("moods", moods)
     makeMoodSelectChoices(moods)
   })
 }
